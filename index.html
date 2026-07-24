@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tomas Vopat</title>
+<meta name="description" content="Personal hub of Tomas Vopat — satellite comms software engineer based in Espoo, Finland. Links to GitHub, X, 3D models, and blog.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#0B0E14;
+    --line:#1E2532;
+    --line-2:#2A3342;
+    --text:#E8E6E0;
+    --muted:#6A7280;
+    --muted-2:#8A93A2;
+    --signal:#F2A83B;
+    --font-display:"IBM Plex Sans Condensed", ui-sans-serif, system-ui, sans-serif;
+    --font-mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    min-height:100vh;
+    background:var(--void);
+    color:var(--text);
+    font-family:var(--font-mono);
+    -webkit-font-smoothing:antialiased;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:64px 24px;
+  }
+
+  .wrap{max-width:600px;width:100%}
+
+  .location{
+    display:block;
+    font-size:12px;
+    letter-spacing:.1em;
+    color:var(--muted);
+    text-transform:uppercase;
+    margin-bottom:18px;
+  }
+  h1{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:clamp(40px,8vw,58px);
+    line-height:1;
+    letter-spacing:-.01em;
+    margin:0 0 10px;
+  }
+  .eyebrow{
+    display:block;
+    font-size:13px;
+    letter-spacing:.14em;
+    color:var(--muted-2);
+    text-transform:uppercase;
+    margin-bottom:22px;
+  }
+  .tagline{
+    font-size:15px;
+    line-height:1.5;
+    color:var(--text);
+    min-height:23px;
+    margin-bottom:48px;
+  }
+  .caret{
+    display:inline-block;
+    width:2px;
+    height:1.05em;
+    background:var(--signal);
+    margin-left:3px;
+    vertical-align:-2px;
+    animation:blink 1.05s step-end infinite;
+  }
+  @keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+  .links{display:flex;flex-direction:column}
+  .link{
+    display:grid;
+    grid-template-columns:1fr auto;
+    column-gap:16px;
+    align-items:center;
+    text-decoration:none;
+    color:var(--text);
+    padding:16px 4px;
+    border-top:1px solid var(--line);
+    transition:border-color .16s ease;
+  }
+  .links .link:last-child{border-bottom:1px solid var(--line)}
+
+  .link .txt{display:flex;flex-direction:column;gap:3px;min-width:0}
+  .link .name{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:20px;
+    letter-spacing:.01em;
+  }
+  .link .desc{font-size:11px;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+  .link .arrow{color:var(--signal);font-size:17px;justify-self:end;transition:transform .16s ease}
+
+  a.link:hover,a.link:focus-visible{border-top-color:var(--signal);outline:none}
+  a.link:hover + .link,a.link:focus-visible + .link{border-top-color:var(--signal)}
+  a.link:hover .arrow,a.link:focus-visible .arrow{transform:translateX(4px)}
+  a.link:focus-visible .name{text-decoration:underline;text-underline-offset:3px}
+
+  .link.soon{cursor:default}
+  .link.soon .name{color:var(--muted-2)}
+  .link.soon .tag{
+    justify-self:end;
+    font-size:10px;
+    letter-spacing:.12em;
+    color:var(--muted);
+    text-transform:uppercase;
+    border:1px solid var(--line-2);
+    padding:3px 8px;
+  }
+
+  footer{margin-top:40px;font-size:11px;letter-spacing:.08em;color:var(--muted)}
+  footer a{color:var(--muted);text-decoration:none}
+  footer a:hover{color:var(--text)}
+
+  @media (max-width:440px){
+    body{padding:48px 22px}
+    .link{column-gap:12px}
+    .link .desc{display:none}
+  }
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="location">Espoo, Finland &middot; 60.20&deg;N 24.66&deg;E</div>
+    <h1>Tomas Vopat</h1>
+    <span class="eyebrow">Software Engineer &middot; Skylo</span>
+    <div class="tagline"><span id="typeText"></span><span class="caret" aria-hidden="true"></span></div>
+
+
+    <nav class="links">
+      <a class="link" href="https://www.linkedin.com/in/tomvopat">
+        <span class="txt"><span class="name">LinkedIn</span><span class="desc">Work &amp; experience</span></span>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="link" href="https://x.com/tomvopat">
+        <span class="txt"><span class="name">X / Twitter</span><span class="desc">Posts &amp; updates</span></span>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="link" href="https://github.com/tomvopat/">
+        <span class="txt"><span class="name">GitHub</span><span class="desc">Code &amp; projects</span></span>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <div class="link soon" aria-disabled="true">
+        <span class="txt"><span class="name">3D Models</span><span class="desc">Print library</span></span>
+        <span class="tag">Coming soon</span>
+      </div>
+      <div class="link soon" aria-disabled="true">
+        <span class="txt"><span class="name">Blog</span><span class="desc">Writing</span></span>
+        <span class="tag">Coming soon</span>
+      </div>
+    </nav>
+
+    <footer><a href="https://vopat.space">vopat.space</a></footer>
+  </main>
+
+<script>
+  const PHRASES = [
+    "ships satellite comms software",
+    "chases PRs, both kinds",
+    "prints things that don't exist yet",
+    "reads boarding passes, mostly"
+  ];
+  const el = document.getElementById("typeText");
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+    el.textContent = PHRASES[0];
+  } else {
+    let index = 0, sub = 0, deleting = false, pause = 0;
+    setInterval(() => {
+      if (pause > 0){ pause--; return; }
+      const p = PHRASES[index % PHRASES.length];
+      if (!deleting){ sub < p.length ? sub++ : (deleting = true, pause = 18); }
+      else { sub > 0 ? sub-- : (deleting = false, index++, pause = 5); }
+      el.textContent = p.slice(0, sub);
+    }, 65);
+  }
+</script>
+</body>
+</html>
