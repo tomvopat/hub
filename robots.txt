@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vopat.space/sitemap.xml
