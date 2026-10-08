@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Signal lost — vopat.space</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#0B0E14;
+    --line:#1E2532;
+    --line-2:#2A3342;
+    --text:#E8E6E0;
+    --muted:#6A7280;
+    --muted-2:#8A93A2;
+    --signal:#F2A83B;
+    --font-display:"IBM Plex Sans Condensed", ui-sans-serif, system-ui, sans-serif;
+    --font-mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    min-height:100vh;
+    background:var(--void);
+    color:var(--text);
+    font-family:var(--font-mono);
+    -webkit-font-smoothing:antialiased;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:64px 24px;
+  }
+
+  .wrap{max-width:600px;width:100%}
+
+  .location{
+    display:block;
+    font-size:12px;
+    letter-spacing:.1em;
+    color:var(--muted);
+    text-transform:uppercase;
+    margin-bottom:18px;
+  }
+  .location .code{color:var(--signal)}
+  h1{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:clamp(40px,8vw,58px);
+    line-height:1;
+    letter-spacing:-.01em;
+    margin:0 0 10px;
+  }
+  .eyebrow{
+    display:block;
+    font-size:13px;
+    letter-spacing:.14em;
+    color:var(--muted-2);
+    text-transform:uppercase;
+    margin-bottom:22px;
+  }
+  .tagline{
+    font-size:15px;
+    line-height:1.5;
+    color:var(--text);
+    margin-bottom:48px;
+    overflow-wrap:anywhere;
+  }
+  .tagline .path{color:var(--muted-2)}
+  .caret{
+    display:inline-block;
+    width:2px;
+    height:1.05em;
+    background:var(--signal);
+    margin-left:3px;
+    vertical-align:-2px;
+    animation:blink 1.05s step-end infinite;
+  }
+  @keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+  @media (prefers-reduced-motion:reduce){.caret{animation:none}}
+
+  .link{
+    display:grid;
+    grid-template-columns:1fr auto;
+    column-gap:16px;
+    align-items:center;
+    text-decoration:none;
+    color:var(--text);
+    padding:16px 4px;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    transition:border-color .16s ease;
+  }
+  .link .txt{display:flex;flex-direction:column;gap:3px;min-width:0}
+  .link .name{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:20px;
+    letter-spacing:.01em;
+  }
+  .link .desc{font-size:11px;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+  .link .arrow{color:var(--signal);font-size:17px;justify-self:end;transition:transform .16s ease}
+  a.link:hover,a.link:focus-visible{border-color:var(--signal);outline:none}
+  a.link:hover .arrow,a.link:focus-visible .arrow{transform:translateX(-4px)}
+  a.link:focus-visible .name{text-decoration:underline;text-underline-offset:3px}
+
+  footer{margin-top:40px;font-size:11px;letter-spacing:.08em;color:var(--muted)}
+  footer a{color:var(--muted);text-decoration:none}
+  footer a:hover{color:var(--text)}
+
+  @media (max-width:440px){
+    body{padding:48px 22px}
+    .link{column-gap:12px}
+    .link .desc{display:none}
+  }
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="location"><span class="code">Error 404</span> &middot; No carrier</div>
+    <h1>Signal lost</h1>
+    <span class="eyebrow">Nothing is transmitting on this address</span>
+    <div class="tagline"><span class="path" id="path">This address</span> did not answer the uplink.<span class="caret" aria-hidden="true"></span></div>
+
+    <a class="link" href="/">
+      <span class="txt"><span class="name">Back to base</span><span class="desc">vopat.space home</span></span>
+      <span class="arrow">&larr;</span>
+    </a>
+
+    <footer><a href="https://vopat.space">vopat.space</a></footer>
+  </main>
+
+<script>
+  document.getElementById("path").textContent = location.pathname;
+</script>
+</body>
+</html>
